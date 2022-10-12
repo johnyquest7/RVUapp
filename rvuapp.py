@@ -24,8 +24,19 @@ def save_into_csv(date_time,cpt,wrvu):
     date,time_stamp = convert_datatime_to_string(date_time)
     worksheet.append_row([date,time_stamp,cpt,wrvu])
 
-# create a python dictionary to store the values of the radio buttons
-
+# create python dictionary to store the values of the radio buttons 
+st.session_state.radio_dict = {
+    "Level 1 99211": 0.18,
+    "Level 2 99212": 0.7,
+    "Level 3 99213": 1.3,
+    "Level 4 99214": 1.92,
+    "Level 5 99215": 2.8,
+    "Level 1 99201": 0,
+    "Level 2 99202": 0.93,
+    "Level 3 99203": 1.6,
+    "Level 4 99204": 2.6,
+    "Level 5 99205": 3.5
+}
 
 
 st.title('RVU App')
@@ -37,14 +48,14 @@ with st.form("my_form"):
     with ucol1:
         st.radio(
         "Follow up visits",
-        ["Level 1", "Level 2", "Level 3", "Level 4", "Level 5"],
+        ["Level 1 99211", "Level 2 99212", "Level 3 99213", "Level 4 99214", "Level 5 99214"],
         key="followup",
     )
 
     with ucol2:
         st.radio(     
         "New Patient visits",
-        ["Level 1", "Level 2", "Level 3", "Level 4", "Level 5"],
+        ["Level 1 99201", "Level 2 99202", "Level 3 99203", "Level 4 99204", "Level 5 99205"],
         key="newpatient",
     )
 
